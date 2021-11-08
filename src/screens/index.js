@@ -6,6 +6,8 @@ import UploadPhoto from "./UploadPhoto";
 import Doctor from "./Doctor";
 import Messages from "./Messages";
 import Hospitals from "./Hospitals";
+import ChooseDoctor from "./ChooseDoctor";
+import Chatting from "./Chatting";
 
 export {
     SplashScreen, 
@@ -15,5 +17,7 @@ export {
     UploadPhoto, 
     Doctor, 
     Messages, 
-    Hospitals
+    Hospitals,
+    ChooseDoctor,
+    Chatting,
 };

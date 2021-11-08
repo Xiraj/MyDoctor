@@ -5,8 +5,9 @@ import DoctorCategory from '../../components/molecules/DoctorCategory'
 import HomeProfile from '../../components/molecules/HomeProfile'
 import RatedDoctor from '../../components/molecules/RatedDoctor'
 import { colors, fonts } from '../../utils'
+import { JSONCategoryDoctor } from '../../assets'
 
-const Doctor = () => {
+const Doctor = ({navigation}) => {
     return (
         <View style={styles.container}>
             <View style={styles.content}>
@@ -20,10 +21,15 @@ const Doctor = () => {
                         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                             <View style={styles.category}>
                                 <Gap  width={32} />
-                                <DoctorCategory />
-                                <DoctorCategory />
-                                <DoctorCategory />
-                                <DoctorCategory />
+                                { JSONCategoryDoctor.data.map(item => {
+                                        return (
+                                            <DoctorCategory 
+                                             key={item.id} 
+                                             category={item.category} 
+                                             onPress={() => navigation.navigate("ChooseDoctor")} 
+                                             />  
+                                        );
+                                    })}
                                 <Gap  width={22} />
                             </View>
                         </ScrollView>
@@ -34,10 +40,10 @@ const Doctor = () => {
                         <RatedDoctor />
                         <RatedDoctor />
                         <Text style={styles.sectionLabel}>Good News</Text>
+                        <NewsItem />
+                        <NewsItem />
+                        <NewsItem />
                     </View>
-                    <NewsItem />
-                    <NewsItem />
-                    <NewsItem />
                 </ScrollView>
             </View>
         </View>
